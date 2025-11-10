@@ -4,7 +4,6 @@ services:
     name: jamb-cbt-backend
     env: node
     region: oregon
-    plan: free
     buildCommand: cd apps/backend && npm install && npm run build
     startCommand: cd apps/backend && npm run migrate:up && npm run seed:subjects && npm run seed:demo && npm start
     envVars:
@@ -37,8 +36,6 @@ services:
   - type: web
     name: jamb-cbt-frontend
     env: static
-    region: oregon
-    plan: free
     buildCommand: cd apps/frontend && npm install && npm run build
     staticPublishPath: apps/frontend/dist
     routes:
@@ -56,7 +53,5 @@ databases:
   - name: jamb-cbt-db
     databaseName: jamb_cbt
     user: jamb_user
-    plan: free
 
   - name: jamb-cbt-redis
-    plan: free
