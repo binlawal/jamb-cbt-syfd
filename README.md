@@ -184,7 +184,23 @@ More endpoints coming soon for questions, exams, and analytics.
 
 ## 🚢 Deployment
 
-### Docker
+### Free Deployment (No Payment Required)
+
+Deploy to production using 100% free services:
+
+```bash
+# See detailed guide
+cat FREE_DEPLOY.md
+```
+
+**Services Used:**
+- Render (Backend + PostgreSQL) - Free tier
+- Vercel (Frontend) - Free tier
+- **Total Cost: $0/month**
+
+See [FREE_DEPLOY.md](./FREE_DEPLOY.md) for step-by-step instructions.
+
+### Docker (Local Development)
 
 ```bash
 # Build images
@@ -200,9 +216,9 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### Production
+### Production (Advanced)
 
-See deployment documentation (coming soon) for:
+For production deployments with payment:
 - Kubernetes deployment with Helm
 - Terraform infrastructure provisioning
 - CI/CD with GitHub Actions

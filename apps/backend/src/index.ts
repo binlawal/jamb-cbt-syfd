@@ -55,7 +55,8 @@ fastify.get('/health/ready', async () => {
   const dbHealthy = await testConnection();
   const redisHealthy = await testRedisConnection();
   
-  const status = dbHealthy && redisHealthy ? 'ready' : 'not_ready';
+  // Redis is optional, so only DB needs to be healthy
+  const status = dbHealthy ? 'ready' : 'not_ready';
   const statusCode = status === 'ready' ? 200 : 503;
   
   return {
@@ -63,7 +64,7 @@ fastify.get('/health/ready', async () => {
     timestamp: new Date().toISOString(),
     checks: {
       database: dbHealthy ? 'healthy' : 'unhealthy',
-      redis: redisHealthy ? 'healthy' : 'unhealthy',
+      redis: redisHealthy ? 'healthy' : 'disabled',
     },
   };
 });
@@ -80,9 +81,18 @@ fastify.get('/', async () => {
 // Start server
 async function start() {
   try {
-    // Connect to Redis
-    await connectRedis();
-    fastify.log.info('Redis connected');
+    // Connect to Redis (optional)
+    try {
+      await connectRedis();
+      const redisConnected = await testRedisConnection();
+      if (redisConnected) {
+        fastify.log.info('Redis connected');
+      } else {
+        fastify.log.info('Redis disabled - using in-memory cache');
+      }
+    } catch (err) {
+      fastify.log.warn('Redis connection failed - using in-memory cache');
+    }
 
     // Test database connection
     const dbConnected = await testConnection();

@@ -16,15 +16,7 @@ services:
           name: jamb-cbt-db
           property: connectionString
       - key: REDIS_HOST
-        fromService:
-          name: jamb-cbt-redis
-          type: redis
-          property: host
-      - key: REDIS_PORT
-        fromService:
-          name: jamb-cbt-redis
-          type: redis
-          property: port
+        value: ""  # Redis disabled - using in-memory cache
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_REFRESH_SECRET
@@ -53,5 +45,4 @@ databases:
   - name: jamb-cbt-db
     databaseName: jamb_cbt
     user: jamb_user
-
-  - name: jamb-cbt-redis
+    plan: free  # Free tier: 90 days, 1GB storage, 97 connection limit

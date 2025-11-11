@@ -1,48 +1,95 @@
-# 🚀 START HERE - JAMB CBT Prep System
+# 🚀 Deploy JAMB CBT Prep for FREE
 
-## One-Command Setup & Run
+Your app is ready to deploy with **$0 monthly cost**!
 
+## What's Been Fixed
+
+✅ **No payment required** - Uses only free-tier services
+✅ **Redis removed** - Uses in-memory cache instead
+✅ **PostgreSQL free tier** - 90 days free, 1GB storage
+✅ **Ready to deploy** - All configurations updated
+
+## Quick Start (3 Steps)
+
+### 1️⃣ Push to GitHub (2 minutes)
 ```bash
-./setup-and-run.sh && echo "✅ Setup complete! Now start the servers..."
+cd jamb-cbt-prep
+git add .
+git commit -m "Ready for deployment"
+git push
 ```
 
-Then in **two separate terminals**:
+### 2️⃣ Deploy Backend on Render (5 minutes)
+- Go to [render.com](https://render.com)
+- Create PostgreSQL database (FREE plan)
+- Create Web Service from GitHub
+- Set environment variables
+- Deploy!
 
-### Terminal 1: Backend
-```bash
-cd apps/backend && npm run dev
-```
+### 3️⃣ Deploy Frontend on Vercel (3 minutes)
+- Go to [vercel.com](https://vercel.com)
+- Import GitHub repository
+- Set `VITE_API_URL` environment variable
+- Deploy!
 
-### Terminal 2: Frontend
-```bash
-cd apps/frontend && npm run dev
-```
+**Total time: ~10 minutes**
 
-## Access the Application
+## Detailed Guides
 
-🌐 **Frontend**: http://localhost:5173
-🔧 **Backend API**: http://localhost:3000
-💚 **Health Check**: http://localhost:3000/health/ready
+Choose your preferred guide:
 
-## Demo Login
+1. **[DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)** ← Start here!
+   - Step-by-step checklist
+   - Nothing to miss
+   - Perfect for first-time deployers
 
-Click the **"Candidate Demo"** button on the login page, or use:
+2. **[FREE_DEPLOY.md](./FREE_DEPLOY.md)**
+   - Detailed instructions
+   - Screenshots and explanations
+   - Troubleshooting tips
 
-- **Email**: chidi@example.com
-- **Password**: candidate123
+3. **[DEPLOY_FREE_SUMMARY.md](./DEPLOY_FREE_SUMMARY.md)**
+   - Quick reference
+   - Command snippets
+   - Cost breakdown
 
-## That's It!
+## What You'll Get
 
-You're now running the JAMB CBT Prep system locally.
+✨ **Live Production App**
+- Frontend: `https://your-app.vercel.app`
+- Backend: `https://your-backend.onrender.com`
+- Database: PostgreSQL (1GB)
+- Cache: In-memory (no Redis needed)
 
-For more details, see:
-- [PREVIEW_READY.md](./PREVIEW_READY.md) - Complete feature list
-- [QUICKSTART.md](./QUICKSTART.md) - Detailed setup guide
-- [README.md](./README.md) - Full documentation
+💰 **Cost: $0/month**
+- Render Web Service: Free
+- Render PostgreSQL: Free (90 days)
+- Vercel Hosting: Free
+- No credit card required!
 
----
+## Demo Credentials
 
-**Need Help?**
-1. Make sure Docker is running
-2. Check that ports 3000, 5173, 5432, and 6379 are available
-3. View logs in the terminal for any errors
+Once deployed, login with:
+- **Admin**: `admin@jamb-cbt.com` / `admin123`
+- **Student**: `chidi@example.com` / `candidate123`
+
+## Important Notes
+
+⚠️ **Cold Starts**: Free tier sleeps after 15 min inactivity. First request takes ~30 seconds.
+
+⚠️ **Database Expiry**: Free PostgreSQL expires after 90 days. You can:
+- Add payment ($7/month) to continue on Render
+- Migrate to Supabase (free forever)
+- Migrate to Neon (free forever)
+
+## Need Help?
+
+- **Quick questions**: Check [FREE_DEPLOY.md](./FREE_DEPLOY.md) troubleshooting section
+- **Local development**: See [QUICKSTART.md](./QUICKSTART.md)
+- **Project overview**: See [README.md](./README.md)
+
+## Ready to Deploy?
+
+👉 **Start with [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)**
+
+Good luck! 🎉
